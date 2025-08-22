@@ -48,6 +48,7 @@ header {
   align-items: center;
   width: 100%;
   position: fixed;
+  top: 0px;
   background-color: var(--color-brown);
   justify-content: space-between;
   padding: 14px 100px;
@@ -72,17 +73,87 @@ header a {
   text-decoration: none;
   color: var(--color-black);
   line-height: 10px;
-  font-size: 16px;
+  font-size: 24px;
   /* transition: 0.5 ease; */
 }
-
+.nav-icons {
+  display: flex;
+  gap: 15px;
+}
 header a:hover {
   color: aqua;
   border-bottom: 2px solid aqua;
 }
-span {
-  padding: 0 15px;
+
+.icon {
+  font-size: 30px;
+  padding-right: 15px;
+}
+
+.control-icons {
+  display: none;
   cursor: pointer;
+}
+
+/* media for header */
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  header {
+    padding: 14px 20px;
+  }
+
+  header a {
+    font-size: 20px;
+  }
+  header li {
+    padding: 0 10px;
+  }
+  .left-header {
+    align-items: center;
+  }
+
+  .icon {
+    font-size: 25px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  header {
+    align-items: flex-start;
+
+    gap: 20px;
+    padding: 14px 20px;
+  }
+
+  header a {
+    font-size: 20px;
+  }
+
+  .left-header {
+    flex-direction: column;
+  }
+
+  .icon {
+    font-size: 20px;
+    padding-right: 7px;
+  }
+  .nav-icons {
+    gap: 5px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    display: none;
+  }
+  .nav-bar.active {
+    display: flex;
+  }
+
+  .control-icons {
+    display: block;
+  }
 }
 
 /* free-ship */
@@ -90,8 +161,8 @@ span {
   background-color: var(--color-black);
   color: var(--white);
   text-align: center;
-
-  padding: 15px 0;
+  margin-top: 3.5rem;
+  padding: 0.8rem 0;
 }
 
 /* HERO */
@@ -101,6 +172,7 @@ span {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3)),
     url(glam-img/hero-img.jpg);
   background-size: cover;
+  background-position: center;
 }
 
 .hero-text {
@@ -128,6 +200,13 @@ span {
   color: aqua;
 }
 
+@media screen and (max-width: 750px) {
+  .hero-text {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 /* BEST SELLERS */
 #best-s {
   height: 100%;
@@ -137,6 +216,7 @@ span {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 60px 0;
 }
 
 #best-s h2 {
@@ -150,10 +230,13 @@ span {
   border: 1px solid;
   cursor: pointer;
 }
+/* BEST SELLING */
 
 .best-selling-product {
   display: flex;
+  align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -165,13 +248,32 @@ span {
   align-items: center;
 }
 .bs-text > p {
-  line-height: 30px;
   text-align: center;
 }
 
 .colour {
   display: flex;
   gap: 20px;
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .best-selling-product {
+    display: flex;
+    gap: 40px;
+  }
+
+  .bs-text {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .best-selling-product {
+    gap: 50px;
+  }
+
+  .bs-text {
+    gap: 25px;
+  }
 }
 
 /* STUDIO */
@@ -188,6 +290,14 @@ span {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url(glam-img/bg2.jpg);
   background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 750px) {
+  .studio-collections {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* footer */
@@ -195,11 +305,10 @@ span {
 footer {
   font-family: sans-serif;
   background-color: #8e98a8;
-  display: flex;
-
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px;
 }
 
 footer a {
@@ -261,4 +370,74 @@ input {
 .locations h2,
 .app h2 {
   margin-bottom: 20px;
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    gap: 40px;
+    padding: 30px;
+  }
+
+  .app-imgs img {
+    max-width: 200px;
+  }
+
+  .f-icons i {
+    font-size: 18px;
+  }
+
+  input,
+  .sub-btn {
+    font-size: 16px;
+  }
+
+  .pages img,
+  .subscribe-box h2,
+  .locations h2,
+  .app h2 {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .f-icons {
+    justify-content: center;
+  }
+
+  .app-imgs {
+    justify-content: center;
+  }
+
+  .app-imgs img {
+    max-width: 150px;
+  }
+
+  input,
+  .sub-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .pages img,
+  .subscribe-box h2,
+  .locations h2,
+  .app h2 {
+    margin-bottom: 10px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sub-btn {
+    padding: 8px 15px;
+  }
 }
